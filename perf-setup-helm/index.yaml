@@ -1,0 +1,91 @@
+apiVersion: v1
+entries:
+  1.0-namespace:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.1939662+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 3a0684e34fa378189d58d5ba1573c6c69215e0ec5c6ccb73d0138b9c8f10e452
+    name: 1.0-namespace
+    type: application
+    urls:
+    - 1.0-namespace-0.1.0.tgz
+    version: 0.1.0
+  2.0-jenkins:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.1939662+05:30"
+    description: A Helm chart for Kubernetes
+    digest: eaaa4992e8327cb52282f28c98d23deec76c879417f81d8faccda51f6ca412eb
+    name: 2.0-jenkins
+    type: application
+    urls:
+    - 2.0-jenkins-0.1.0.tgz
+    version: 0.1.0
+  3.0-prometheus:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.1977+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 6fb2fc189a850457b8f4614cee0dda3501d9198bd667080e3b79027617cf5fde
+    name: 3.0-prometheus
+    type: application
+    urls:
+    - 3.0-prometheus-0.1.0.tgz
+    version: 0.1.0
+  4.0-loki:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.1977+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 4ecdf690da67bfa56ff03350ff2be752358fc7dfc477ac48fcf02fe3ec220116
+    name: 4.0-loki
+    type: application
+    urls:
+    - 4.0-loki-0.1.0.tgz
+    version: 0.1.0
+  5.0-influx:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.198239+05:30"
+    description: A Helm chart for Kubernetes
+    digest: e0601790ab34433bcd23b2275acc5b623903214080ea82fae9efc1987c77be9b
+    name: 5.0-influx
+    type: application
+    urls:
+    - 5.0-influx-0.1.0.tgz
+    version: 0.1.0
+  6.0-influx:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.198239+05:30"
+    description: A Helm chart for Kubernetes
+    digest: d715ef083ed848991f95075027952817ef27e1a4ad915f643d702e3a68cb1607
+    name: 6.0-influx
+    type: application
+    urls:
+    - 6.0-influx-0.1.0.tgz
+    version: 0.1.0
+  7.0-jmeter-master:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.198239+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 259bd9d1b8dd164b67bd5aeb61306df700495fa710bf50304d793667ca94f40d
+    name: 7.0-jmeter-master
+    type: application
+    urls:
+    - 7.0-jmeter-master-0.1.0.tgz
+    version: 0.1.0
+  8.0-jmeter-slave:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-25T14:44:13.198239+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 0306a7dfe7fd93230bc4a7c5ab473ff76021ff92a9c35337b9c9b035b2153eb0
+    name: 8.0-jmeter-slave
+    type: application
+    urls:
+    - 8.0-jmeter-slave-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-03-25T14:44:13.1933992+05:30"

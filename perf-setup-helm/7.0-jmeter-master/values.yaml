@@ -1,0 +1,12 @@
+replicas: 1
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 1024Mi
+  limits:
+    cpu: 512m
+    memory: 1248Mi
+
+minMemoryLimit: 1g
+maxMemoryLimit: 1g
