@@ -2,6 +2,8 @@ replicas: 2
 
 appName: jmeter-slave
 
+image: jmeter/jmeter-slave-5.6.3:1.0
+
 resources:      
   requests:
     cpu: 200m
