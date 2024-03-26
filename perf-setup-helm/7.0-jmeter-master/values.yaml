@@ -1,5 +1,7 @@
 replicas: 1
 
+appName: jmeter-master
+
 resources:
   requests:
     cpu: 200m

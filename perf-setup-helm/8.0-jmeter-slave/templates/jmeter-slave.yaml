@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jmeter-slave
+  name: {{ .Values.appName }}
   namespace: perf-platform
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: jmeter-slave
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: jmeter-slave
+        app: {{ .Values.appName }}
     spec:
       containers:
-      - name: jmeter-slave
+      - name: {{ .Values.appName }}
         image: jmeter/jmeter-slave-5.6.3:1.0
         resources:
           requests:
