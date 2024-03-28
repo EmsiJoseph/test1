@@ -20,8 +20,8 @@ spec:
         - containerPort: 8080
         - containerPort: 50000
         volumeMounts:
-        - name: jenkins-home
-          mountPath: /var/jenkins_home
+        - name: jenkins-pv
+          mountPath: /mnt/data/jenkins/jenkins_home
         resources:
           requests:
             cpu: {{ .Values.resources.requests.cpu }}
@@ -30,6 +30,6 @@ spec:
             cpu: {{ .Values.resources.limits.cpu }}
             memory: {{ .Values.resources.limits.memory }}
       volumes:
-      - name: jenkins-home
+      - name: jenkins-pv
         persistentVolumeClaim:
           claimName: jenkins-pvc
