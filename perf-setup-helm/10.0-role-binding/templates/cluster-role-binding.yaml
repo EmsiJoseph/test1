@@ -9,5 +9,5 @@ subjects:
     namespace: perf-platform
 roleRef:
   kind: Role
-  name: replication-controller-manager
+  name: controller-pods
   apiGroup: rbac.authorization.k8s.io

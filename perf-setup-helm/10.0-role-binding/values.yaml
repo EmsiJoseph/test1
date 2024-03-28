@@ -1,8 +1,9 @@
 apiGroup: ""
-resources: "replicationcontrollers"
+resources: "pods"
 verbs:
   - "get"
   - "list"
+  - "watch"
   - "create"
   - "delete"
   - "update"
