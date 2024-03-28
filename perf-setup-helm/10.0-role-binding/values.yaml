@@ -1,0 +1,8 @@
+apiGroup: ""
+resources: "replicationcontrollers"
+verbs:
+  - "get"
+  - "list"
+  - "create"
+  - "delete"
+  - "update"

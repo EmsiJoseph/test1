@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: replication-controller-manager
+  namespace: perf-platform
+rules:
+  - apiGroups: ["{{ .Values.apiGroup }}"]
+    resources: ["{{ .Values.resources }}"]
+    verbs: {{ .Values.verbs | toJson }}
