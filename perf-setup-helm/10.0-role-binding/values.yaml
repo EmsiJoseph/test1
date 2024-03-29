@@ -1,9 +1,39 @@
-apiGroup: ""
-resources: "pods"
+apiGroups:
+  core: ""
+  apps: "apps"
+
+resources:
+  pods: "pods"
+  podsExec: "pods/exec"
+  secrets: "secrets"
+  deployments: "deployments"
+
 verbs:
-  - "get"
-  - "list"
-  - "watch"
-  - "create"
-  - "delete"
-  - "update"
+  pods:
+    - "get"
+    - "list"
+    - "watch"
+    - "create"
+    - "delete"
+    - "update"
+  secrets:
+    - "get"
+    - "list"
+    - "watch"
+    - "create"
+    - "delete"
+    - "update"
+  deployments:
+    - "get"
+    - "list"
+    - "watch"
+    - "create"
+    - "delete"
+    - "update"
+  podsExec:
+    - "get"
+    - "list"
+    - "watch"
+    - "create"
+    - "delete"
+    - "update"

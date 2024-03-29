@@ -4,6 +4,18 @@ metadata:
   name: controller-pods
   namespace: perf-platform
 rules:
-  - apiGroups: ["{{ .Values.apiGroup }}"]
-    resources: ["{{ .Values.resources }}"]
-    verbs: {{ .Values.verbs | toJson }}
+  - apiGroups: ["{{ .Values.apiGroups.core }}" ]
+    resources: ["{{ .Values.resources.pods }}" ]
+    verbs: {{ .Values.verbs.pods | toJson }}
+
+  - apiGroups: [ "{{ .Values.apiGroups.core }}" ]
+    resources: [ "{{ .Values.resources.podsExec }}" ]
+    verbs: {{ .Values.verbs.podsExec | toJson }}
+
+  - apiGroups: [ "{{ .Values.apiGroups.core }}" ]
+    resources: [ "{{ .Values.resources.secrets }}" ]
+    verbs: {{ .Values.verbs.secrets | toJson }}
+
+  - apiGroups: [ "{{ .Values.apiGroups.apps }}" ]
+    resources: [ "{{ .Values.resources.deployments }}" ]
+    verbs: {{ .Values.verbs.deployments | toJson }}
