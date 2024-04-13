@@ -43,7 +43,5 @@ RUN cd . > jmeter.server.log
 
 WORKDIR ${JMETER_HOME}/bin
 
-RUN ln -sf /dev/stdout ./jmeter-server.log
-ENTRYPOINT ["sh", "-c", "sed -i 's/^/jmeter-server.log: /' ./jmeter-server.log && \
- ./jmeter-server -Dserver.rmi.localport=1099 -Dserver_port=1099 -Jserver.rmi.ssl.disable=true | \
-  sed 's/^/jmeter-server: /'"]
+ENTRYPOINT ["sh", "-c", "./jmeter-server -Dserver.rmi.localport=1099 -Dserver_port=1099 -Jserver.rmi.ssl.disable=true \
+| tee -a jmeter.server.log"]
