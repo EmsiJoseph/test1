@@ -24,11 +24,11 @@ spec:
         - secretRef:
             name: grafana-credentials
         volumeMounts:
-        - name: grafana-pvc
-          mountPath: /var/lib/grafana
         - name: grafana-datasources
           subPath: datasources.yaml
           mountPath: /etc/grafana/provisioning/datasources/datasources.yaml
+        - name: grafana-pv
+          mountPath: /var/lib/grafana
         resources:
           requests:
             cpu: {{ .Values.resources.requests.cpu }}
@@ -37,9 +37,9 @@ spec:
             cpu: {{ .Values.resources.limits.cpu }}
             memory: {{ .Values.resources.limits.memory }}
       volumes:
-      - name: grafana-pvc
-        persistentVolumeClaim:
-        claimName: grafana-pvc
       - name: grafana-datasources
         configMap:
           name: grafana-datasources
+      - name: grafana-pv
+        persistentVolumeClaim:
+          claimName: grafana-pvc

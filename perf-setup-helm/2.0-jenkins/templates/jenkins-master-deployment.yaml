@@ -21,7 +21,7 @@ spec:
         - containerPort: 50000
         volumeMounts:
         - name: jenkins-pv
-          mountPath: /mnt/data/jenkins/jenkins_home
+          mountPath: /var/jenkins_home
         resources:
           requests:
             cpu: {{ .Values.resources.requests.cpu }}
