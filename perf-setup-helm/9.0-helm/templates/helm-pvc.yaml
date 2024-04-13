@@ -4,7 +4,6 @@ metadata:
   name: helm-pvc
   namespace: perf-platform
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
