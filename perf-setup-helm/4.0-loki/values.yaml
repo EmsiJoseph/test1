@@ -1,5 +1,8 @@
 loki:
   enabled: true
+  serviceName: loki-stack
+  headlessServiceName: loki-stack-headless
+  memberlistServiceName: loki-stack-memberlist
   persistence:
     enabled: true
     size: 5Gi
@@ -9,3 +12,17 @@ promtail:
 
 grafana:
   enabled: false
+
+server:
+  persistentVolume:
+    enabled: true
+    mountPath: /data/loki
+    size: 10Gi
+
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+ingester:
+  zone: "default-zone"

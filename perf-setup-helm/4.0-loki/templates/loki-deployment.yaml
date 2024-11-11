@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki-stack
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki-stack
+  template:
+    metadata:
+      labels:
+        app: loki-stack
+    spec:
+      containers:
+        - name: loki
+          image: "grafana/loki:2.2.1"  # Use a version compatible with your config
+          ports:
+            - containerPort: 3100
+          args:
+            - "-config.file=/etc/loki/loki-config.yaml"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/loki
+            - name: data
+              mountPath: /data/loki
+      volumes:
+        - name: config
+          configMap:
+            name: loki-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: loki-pvc

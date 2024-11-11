@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: loki-stack-promtail
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: loki-promtail
+  template:
+    metadata:
+      labels:
+        app: loki-promtail
+    spec:
+      containers:
+        - name: promtail
+          image: "grafana/promtail:latest"
+          ports:
+            - containerPort: 3100
+          volumeMounts:
+            - name: config
+              mountPath: /etc/promtail
+            - name: logs
+              mountPath: /var/log
+      volumes:
+        - name: config
+          configMap:
+            name: promtail-config
+        - name: logs
+          hostPath:
+            path: /var/log

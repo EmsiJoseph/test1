@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-server
+  namespace: monitoring
+  labels:
+    app: prometheus
+    release: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.server.replicaCount }}
+  selector:
+    matchLabels:
+      app: prometheus
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: prometheus
+          image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag }}"
+          imagePullPolicy: {{ .Values.server.image.pullPolicy }}
+          args:
+            {{- range .Values.server.extraFlags }}
+            - {{ . }}
+            {{- end }}
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: data-volume
+              mountPath: {{ .Values.server.persistentVolume.mountPath | default "/prometheus" }}
+          resources:
+            {{- toYaml .Values.server.resources | nindent 12 }}
+      volumes:
+        - name: data-volume
+          {{- if .Values.server.persistentVolume.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-prometheus-pvc
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+      {{- if .Values.server.affinity }}
+      affinity:
+        {{- toYaml .Values.server.affinity | nindent 8 }}
+      {{- end }}
+      {{- if .Values.server.nodeSelector }}
+      nodeSelector:
+        {{- toYaml .Values.server.nodeSelector | nindent 8 }}
+      {{- end }}
+      {{- if .Values.server.tolerations }}
+      tolerations:
+        {{- toYaml .Values.server.tolerations | nindent 8 }}
+      {{- end }}
